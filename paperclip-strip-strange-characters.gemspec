@@ -5,9 +5,9 @@ Gem::Specification.new do |s|
   s.version           = '0.0.1'
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = "Strip strange characters from Paperclip upload"
-  s.homepage          = "http://github.com/wspruijt/paperclip-strip-strange-characters"
-  s.email             = "willem.spruijt@gmail.com"
-  s.authors           = [ "Willem Spruijt" ]
+  s.homepage          = "http://github.com/dmerand/paperclip-strip-strange-characters"
+  s.email             = "dlm@donaldmerand.com"
+  s.authors           = [ "Donald L. Merand" ]
   s.has_rdoc          = false
 
   s.files             = %w( README.md Rakefile LICENSE )
