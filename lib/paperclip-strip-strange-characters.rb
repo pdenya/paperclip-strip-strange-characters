@@ -1,4 +1,4 @@
-require 'iconv'
+#require 'iconv'
 require 'digest/md5'
 
 class String
