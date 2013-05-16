@@ -3,14 +3,15 @@ require 'digest/md5'
 
 class String
   def strip_strange_characters(ignore = true, hash = true)
-    # Escape str by transliterating to UTF-8 with Iconv
-    if ignore
+    # Escape str by transliterating to UTF-8
+    s = self.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => "").force_encoding('UTF-8')
+    #if ignore
       # s = Iconv.iconv('ascii//ignore//translit', 'utf-8', self).to_s
-      s = s.gsub(/[\x80-\xff]/,"")
-    else
-      #s = Iconv.iconv('ascii//translit', 'utf-8', self).to_s
-      s = s.gsub(/[\x80-\xff]/,"")
-    end
+      # s = self.gsub(/[\x80-\xff]/,"")
+    #else
+      # s = Iconv.iconv('ascii//translit', 'utf-8', self).to_s
+      # s = self.gsub(/[\x80-\xff]/,"")
+    #end
     
     # Downcase string
     s.downcase!
