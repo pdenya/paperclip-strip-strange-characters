@@ -2,7 +2,7 @@ $LOAD_PATH.unshift 'lib'
 
 Gem::Specification.new do |s|
   s.name              = "paperclip-strip-strange-characters"
-  s.version           = '0.0.1'
+  s.version           = '0.0.2'
   s.date              = Time.now.strftime('%Y-%m-%d')
   s.summary           = "Strip strange characters from Paperclip upload"
   s.homepage          = "http://github.com/dmerand/paperclip-strip-strange-characters"
