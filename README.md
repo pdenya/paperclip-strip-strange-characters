@@ -1,6 +1,8 @@
 Strip strange characters from Paperclip upload
 
-I modified [dmerand's version](https://github.com/dmerand/paperclip-strip-strange-characters) for compatability with paperclip 4.1 on rails 4.
+### New in this version
+
+I modified [dmerand's version](https://github.com/dmerand/paperclip-strip-strange-characters) for **compatability with paperclip 4.1 on rails 4**.
 
 -----------
 
