@@ -43,15 +43,10 @@ module ActiveRecord
   class Base
     protected
       def strip_strange_characters_from_attachments
-        if self.attachment_definitions
-          self.attachment_definitions.each do |k,v|
-            if self.send(k).file?
-              full_file_name = self.send("#{k}_file_name")
-              extension = File.extname(full_file_name)
-              file_name = full_file_name[0..full_file_name.size-extension.size-1]
-
-              self.send("#{k}").instance_write(:file_name, "#{file_name.strip_strange_characters}.#{extension.strip_strange_characters}")
-            end
+        self.instance_variable_get(:@_paperclip_attachments).keys.each do |attachment|
+           attachment_file_name = (attachment.to_s + '_file_name').to_sym
+           if self.send(attachment_file_name)
+             self.send(attachment).instance_write(:file_name, self.send(attachment_file_name).strip_strange_characters)
           end
         end
       end
