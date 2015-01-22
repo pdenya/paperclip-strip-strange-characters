@@ -37,7 +37,10 @@ module ActiveRecord
       def strip_strange_characters_from_attachments
         if self.class.attachment_definitions
           self.class.attachment_definitions.each do |k,v|
-            if self.send(k).file?
+
+            # Only modify names of attachments that are being updated
+            # Otherwise, the record names & the paths in s3 can become desynchronized
+            if self.send(k).file? && self.send("#{k}_file_name_changed?")
               full_file_name = self.send("#{k}_file_name")
               extension = File.extname(full_file_name)
               file_name = full_file_name[0..full_file_name.size-extension.size-1]
